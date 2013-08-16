@@ -8,6 +8,7 @@
 
 #import "TweetDetailVC.h"
 
+
 @interface TweetDetailVC ()
 
 @end
@@ -27,6 +28,15 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    //[self.tweetText setNumberOfLines:ceil(([self.tweet.text sizeWithFont:[UIFont systemFontOfSize:17.0f] ].width)/self.tweetText.bounds.size.width-300)];
+    self.tweetText.text = self.tweet.text;
+    
+    CGFloat bodyHeight = 200.0;// calculate this based on text
+    self.tweetText.frame = CGRectMake(self.tweetText.frame.origin.x, self.tweetText.frame.origin.y, self.tweetText.frame.size.width, bodyHeight);
+    self.tweetText.numberOfLines = 0;
+    self.tweetText.text = self.tweet.text;
+
+    
 }
 
 - (void)didReceiveMemoryWarning

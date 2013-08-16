@@ -117,7 +117,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    TweetDetailVC *tweetDetailVC = [[TweetDetailVC alloc] init];
+    
+    TweetDetailVC *tweetDetailVC = [[TweetDetailVC alloc] initWithNibName:@"TweetDetailVC" bundle:nil];
+    Tweet *tweet = self.tweets[indexPath.row];
+    tweetDetailVC.tweet = tweet;
+    //[tweetDetailVC.profilePhoto setImageWithURL:[NSURL URLWithString:[tweet objectForKey:@"profile_image_url"]]];
+  
+    
+    
     [self.navigationController pushViewController:tweetDetailVC animated:YES];
     
 }

@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tweet.h"
 
 @interface TweetDetailVC : UIViewController
+
+@property (nonatomic, strong) IBOutlet UIImageView *profilePhoto;
+@property (nonatomic, strong) IBOutlet UILabel *username;
+@property (nonatomic, strong) IBOutlet UILabel *twitterHandle;
+@property (nonatomic, strong) IBOutlet UILabel *tweetText;
+
+
+@property (nonatomic, strong) Tweet *tweet;
+
 
 @end
