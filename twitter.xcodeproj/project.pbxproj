@@ -36,6 +36,8 @@
 		F0F4913817C008B9000C2F96 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = F0F4913417C008B9000C2F96 /* favorite.png */; };
 		F0F4913917C008B9000C2F96 /* Reply.png in Resources */ = {isa = PBXBuildFile; fileRef = F0F4913517C008B9000C2F96 /* Reply.png */; };
 		F0F4913A17C008B9000C2F96 /* retweet.png in Resources */ = {isa = PBXBuildFile; fileRef = F0F4913617C008B9000C2F96 /* retweet.png */; };
+		F0F4914117C01562000C2F96 /* ComposeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F4913F17C01562000C2F96 /* ComposeVC.m */; };
+		F0F4914217C01562000C2F96 /* ComposeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0F4914017C01562000C2F96 /* ComposeVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,9 @@
 		F0F4913417C008B9000C2F96 /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favorite.png; path = Images/favorite.png; sourceTree = "<group>"; };
 		F0F4913517C008B9000C2F96 /* Reply.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Reply.png; path = Images/Reply.png; sourceTree = "<group>"; };
 		F0F4913617C008B9000C2F96 /* retweet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = retweet.png; path = Images/retweet.png; sourceTree = "<group>"; };
+		F0F4913E17C01562000C2F96 /* ComposeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeVC.h; sourceTree = "<group>"; };
+		F0F4913F17C01562000C2F96 /* ComposeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeVC.m; sourceTree = "<group>"; };
+		F0F4914017C01562000C2F96 /* ComposeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +215,9 @@
 				F003E53517BDEC4E0077E992 /* TweetDetailVC.h */,
 				F003E53617BDEC4E0077E992 /* TweetDetailVC.m */,
 				F003E53717BDEC4E0077E992 /* TweetDetailVC.xib */,
+				F0F4913E17C01562000C2F96 /* ComposeVC.h */,
+				F0F4913F17C01562000C2F96 /* ComposeVC.m */,
+				F0F4914017C01562000C2F96 /* ComposeVC.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -358,6 +366,7 @@
 				42CC89AB17B0C31900B6D34B /* SignedOutVC.xib in Resources */,
 				F0F4913817C008B9000C2F96 /* favorite.png in Resources */,
 				42CC893617AF4C6A00B6D34B /* InfoPlist.strings in Resources */,
+				F0F4914217C01562000C2F96 /* ComposeVC.xib in Resources */,
 				42CC893E17AF4C6B00B6D34B /* Images.xcassets in Resources */,
 				F003E53917BDEC4E0077E992 /* TweetDetailVC.xib in Resources */,
 			);
@@ -418,6 +427,7 @@
 				42CC89B417B0D63C00B6D34B /* RestObject.m in Sources */,
 				42CC895D17AF6FBB00B6D34B /* TimelineVC.m in Sources */,
 				42CC893C17AF4C6B00B6D34B /* AppDelegate.m in Sources */,
+				F0F4914117C01562000C2F96 /* ComposeVC.m in Sources */,
 				F003E53817BDEC4E0077E992 /* TweetDetailVC.m in Sources */,
 				42CC893817AF4C6B00B6D34B /* main.m in Sources */,
 			);

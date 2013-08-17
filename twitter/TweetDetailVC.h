@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Tweet.h"
+#import "ComposeVC.h"
 
 @interface TweetDetailVC : UIViewController
 

@@ -16,7 +16,6 @@
 - (IBAction)onFavoriteButton:(id)sender;
 
 
-
 @end
 
 @implementation TweetDetailVC
@@ -63,6 +62,11 @@
 
 - (IBAction)onReplyButton:(id)sender
 {
+    ComposeVC *composeVC = [[ComposeVC alloc] init];
+    //UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:composeVC];
+    //nvc.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonSystemItemCancel target:self action:@selector(onCancel)];
+    composeVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:composeVC animated:YES completion:nil];
     NSLog(@"Reply button clicked");
 }
 
@@ -75,5 +79,4 @@
 {
     NSLog(@"Retweet button clicked");
 }
-
 @end
