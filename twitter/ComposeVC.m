@@ -7,6 +7,7 @@
 //
 
 #import "ComposeVC.h"
+#import "TwitterClient.h"
 
 @interface ComposeVC ()
 
@@ -61,7 +62,7 @@
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
-    
+   
 }
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
@@ -75,8 +76,9 @@
     return YES;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
+- (BOOL)textViewShouldReturn:(UITextField *)textView
 {
+    [textView resignFirstResponder];
     return YES;
 }
 
@@ -91,6 +93,13 @@
 - (IBAction)onPost:(id)sender {
 
     //post the text to twitter
+    [[TwitterClient instance] postTweet:self.tweetTextView.text success:^(AFHTTPRequestOperation *operation, id response) {
+        NSLog(@"%@", response);
+        //Dismiss the modal dialog on successful POST.
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // Do nothing
+    }];
 }
 
 
