@@ -12,8 +12,10 @@
 
 @interface TimelineVC ()
 
+
 @property (nonatomic, strong) NSMutableArray *tweets;
 
+- (void)refresh:(UIRefreshControl *)refreshControl;
 - (void)onSignOutButton;
 - (void)reload;
 
@@ -35,6 +37,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIRefreshControl *pullToRefreshControl = [[UIRefreshControl alloc] init];
+    [pullToRefreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:pullToRefreshControl];
+
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onSignOutButton)];
     
@@ -70,8 +77,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"TweetCell";
-    //TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    //TweetCell *cell = [[TweetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -188,5 +193,11 @@
         // Do nothing
     }];
 }
+
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    [self reload];
+    [refreshControl endRefreshing];
+}
+
 
 @end
