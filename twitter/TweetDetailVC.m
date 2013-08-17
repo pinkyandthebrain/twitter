@@ -40,7 +40,7 @@
     self.tweetText.text = self.tweet.text;
     NSDictionary *userDetails = [self.tweet valueOrNilForKeyPath:@"user"];
     self.username.text = [userDetails objectForKey:@"name"];
-    self.twitterHandle.text = [userDetails objectForKey:@"screen_name"];
+    self.twitterHandle.text = [@"@" stringByAppendingString:[userDetails objectForKey:@"screen_name"]];
     self.profilePhoto.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[userDetails objectForKey:@"profile_image_url"]]]];
     
 
