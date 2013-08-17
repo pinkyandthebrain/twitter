@@ -15,6 +15,6 @@
 
 + (NSMutableArray *)tweetsWithArray:(NSArray *)array;
 + (CGFloat)heightForLabelWithString:(NSString *)pString andWidth:(CGFloat)pWidth;
-
++ (CGFloat)widthForLabelWithString:(NSString *)pString andHeigth:(CGFloat)pHeight;
 
 @end

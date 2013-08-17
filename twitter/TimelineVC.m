@@ -76,21 +76,21 @@
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     Tweet *tweet = self.tweets[indexPath.row];
-    if (0){
-        
-        cell.textLabel.text = tweet.text;
-    } else{
-        
-        CGFloat bodyHeight = [Tweet heightForLabelWithString:tweet.text andWidth:cell.tweetText.bounds.size.width];
-        
-        cell.tweetText.frame = CGRectMake(cell.tweetText.frame.origin.x, cell.tweetText.frame.origin.y, cell.tweetText.frame.size.width, bodyHeight);
-        cell.tweetText.numberOfLines = 0;
-        cell.tweetText.text = tweet.text;
-        NSDictionary *userDetails = [tweet valueOrNilForKeyPath:@"user"];
-        cell.username.text = [userDetails objectForKey:@"name"];
-        cell.twitterHandle.text = [@"@" stringByAppendingString:[userDetails objectForKey:@"screen_name"]];
-        cell.profilePhoto.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[userDetails objectForKey:@"profile_image_url"]]]];
-    }
+    
+    CGFloat bodyHeight = [Tweet heightForLabelWithString:tweet.text andWidth:cell.tweetText.bounds.size.width];
+    
+    cell.tweetText.frame = CGRectMake(cell.tweetText.frame.origin.x, cell.tweetText.frame.origin.y, cell.tweetText.frame.size.width, bodyHeight);
+    cell.tweetText.numberOfLines = 0;
+    cell.tweetText.text = tweet.text;
+    NSDictionary *userDetails = [tweet valueOrNilForKeyPath:@"user"];
+    NSString *username = [[NSString alloc] initWithString:[userDetails objectForKey:@"name"]];
+    CGFloat bodyWidth = [Tweet widthForLabelWithString:username andHeigth:cell.username.bounds.size.height];
+    cell.username.frame = CGRectMake(cell.username.frame.origin.x, cell.username.frame.origin.y, bodyWidth+50, cell.username.bounds.size.height);
+    cell.username.text = username;
+    cell.twitterHandle.frame = CGRectMake(cell.username.frame.origin.x+bodyWidth+5,cell.twitterHandle.frame.origin.y, cell.twitterHandle.bounds.size.width, cell.twitterHandle.bounds.size.height);
+    cell.twitterHandle.text = [@"@" stringByAppendingString:[userDetails objectForKey:@"screen_name"]];
+    cell.profilePhoto.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[userDetails objectForKey:@"profile_image_url"]]]];
+    
     return cell;
 }
 
@@ -153,7 +153,7 @@
     
     Tweet *tweet = self.tweets[indexPath.row];
     CGFloat bodyHeight = [Tweet heightForLabelWithString:tweet.text andWidth:290];
-
+    
     return bodyHeight+50.0;
     
 }

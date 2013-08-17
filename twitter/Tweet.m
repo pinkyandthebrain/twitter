@@ -32,4 +32,10 @@
     return labelSize.height;
 }
 
++ (CGFloat)widthForLabelWithString:(NSString *)pString andHeigth:(CGFloat)pHeight
+{
+    CGSize labelSize = [pString sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14.5f] constrainedToSize:CGSizeMake(MAXFLOAT        , pHeight) lineBreakMode:NSLineBreakByWordWrapping];
+    return labelSize.width;
+}
+
 @end
