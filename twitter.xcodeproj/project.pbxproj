@@ -32,6 +32,7 @@
 		F003E53817BDEC4E0077E992 /* TweetDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F003E53617BDEC4E0077E992 /* TweetDetailVC.m */; };
 		F003E53917BDEC4E0077E992 /* TweetDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F003E53717BDEC4E0077E992 /* TweetDetailVC.xib */; };
 		F003E54717BF41760077E992 /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42CC89C017B0F03E00B6D34B /* TweetCell.xib */; };
+		F0066E4017C02BF80003FC37 /* compose.png in Resources */ = {isa = PBXBuildFile; fileRef = F0066E3F17C02BF80003FC37 /* compose.png */; };
 		F0F4913717C008B9000C2F96 /* bird_blue_48.png in Resources */ = {isa = PBXBuildFile; fileRef = F0F4913317C008B9000C2F96 /* bird_blue_48.png */; };
 		F0F4913817C008B9000C2F96 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = F0F4913417C008B9000C2F96 /* favorite.png */; };
 		F0F4913917C008B9000C2F96 /* Reply.png in Resources */ = {isa = PBXBuildFile; fileRef = F0F4913517C008B9000C2F96 /* Reply.png */; };
@@ -91,6 +92,7 @@
 		F003E53517BDEC4E0077E992 /* TweetDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetDetailVC.h; sourceTree = "<group>"; };
 		F003E53617BDEC4E0077E992 /* TweetDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetDetailVC.m; sourceTree = "<group>"; };
 		F003E53717BDEC4E0077E992 /* TweetDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetDetailVC.xib; sourceTree = "<group>"; };
+		F0066E3F17C02BF80003FC37 /* compose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compose.png; path = Images/compose.png; sourceTree = "<group>"; };
 		F0F4913317C008B9000C2F96 /* bird_blue_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bird_blue_48.png; path = Images/bird_blue_48.png; sourceTree = "<group>"; };
 		F0F4913417C008B9000C2F96 /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favorite.png; path = Images/favorite.png; sourceTree = "<group>"; };
 		F0F4913517C008B9000C2F96 /* Reply.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Reply.png; path = Images/Reply.png; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 		F003E53A17BF0C720077E992 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				F0066E3F17C02BF80003FC37 /* compose.png */,
 				F0F4913317C008B9000C2F96 /* bird_blue_48.png */,
 				F0F4913417C008B9000C2F96 /* favorite.png */,
 				F0F4913517C008B9000C2F96 /* Reply.png */,
@@ -359,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0066E4017C02BF80003FC37 /* compose.png in Resources */,
 				F0F4913917C008B9000C2F96 /* Reply.png in Resources */,
 				F0F4913A17C008B9000C2F96 /* retweet.png in Resources */,
 				F0F4913717C008B9000C2F96 /* bird_blue_48.png in Resources */,

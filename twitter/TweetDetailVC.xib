@@ -46,7 +46,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" id="XMo-ji-Dgh" userLabel="ButtonGroupView">
-                    <rect key="frame" x="25" y="229" width="280" height="57"/>
+                    <rect key="frame" x="21" y="229" width="280" height="57"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WYD-Pa-wP0" userLabel="Reply">
@@ -65,7 +65,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="REY-Nx-CBN" userLabel="Retweet">
-                            <rect key="frame" x="117" y="4" width="48" height="48"/>
+                            <rect key="frame" x="115" y="4" width="48" height="48"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" image="retweet.png">
@@ -104,8 +104,8 @@
         </view>
     </objects>
     <resources>
-        <image name="Reply.png" width="48" height="48"/>
-        <image name="favorite.png" width="48" height="48"/>
-        <image name="retweet.png" width="48" height="48"/>
+        <image name="Reply.png" width="32" height="32"/>
+        <image name="favorite.png" width="32" height="32"/>
+        <image name="retweet.png" width="32" height="32"/>
     </resources>
 </document>

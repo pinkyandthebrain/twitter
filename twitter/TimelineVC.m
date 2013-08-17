@@ -9,6 +9,7 @@
 #import "TimelineVC.h"
 #import "TweetDetailVC.h"
 #import "TweetCell.h"
+#import "ComposeVC.h"
 
 @interface TimelineVC ()
 
@@ -18,6 +19,7 @@
 - (void)refresh:(UIRefreshControl *)refreshControl;
 - (void)onSignOutButton;
 - (void)reload;
+- (void)onCompose;
 
 @end
 
@@ -41,10 +43,12 @@
     UIRefreshControl *pullToRefreshControl = [[UIRefreshControl alloc] init];
     [pullToRefreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:pullToRefreshControl];
-
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onSignOutButton)];
-    
+    //TIM: Adding this line is causing issues in TweetDetailVC where the profile photo does not show up.
+    //[self.navigationController.navigationBar setTranslucent:NO];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onSignOutButton)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"compose.png"] style:UIBarButtonItemStylePlain target:self action:@selector(onCompose)];
+     
     //Register custom Nib
     UINib *customNib = [UINib nibWithNibName:@"TweetCell" bundle:nil];
     [self.tableView registerNib:customNib forCellReuseIdentifier:@"TweetCell"];
@@ -199,5 +203,13 @@
     [refreshControl endRefreshing];
 }
 
+- (void) onCompose
+{
+    ComposeVC *composeVC = [[ComposeVC alloc] init];
+    composeVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    
+    [self presentViewController:composeVC animated:YES completion:nil];
+    
+}
 
 @end

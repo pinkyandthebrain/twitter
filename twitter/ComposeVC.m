@@ -10,7 +10,8 @@
 
 @interface ComposeVC ()
 
-- (IBAction) onCancel:(id)sender;
+- (IBAction)onCancel:(id)sender;
+- (IBAction)onPost:(id)sender;
 
 @end
 
@@ -30,6 +31,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.tweetTextView.delegate = self;
+    [self.tweetTextView becomeFirstResponder];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,11 +42,56 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - TextView delegates
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    
+    return YES;
+}
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    
+}
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView
+{
+    
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    
+}
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    //Don't allow new characters after 140
+    if([text isEqualToString:@"\b"]){
+        return YES;
+    }else if([[textView text] length] - range.length + text.length > 140){
+        return NO;
+    }
+
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    return YES;
+}
+
+
 #pragma mark - Private methods
 
 - (IBAction) onCancel:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)onPost:(id)sender {
+
+    //post the text to twitter
+}
+
 
 @end

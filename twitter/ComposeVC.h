@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ComposeVC : UIViewController
+@interface ComposeVC : UIViewController <UITextViewDelegate>
+
+@property (nonatomic, strong) IBOutlet UITextView *tweetTextView;
 
 @end
