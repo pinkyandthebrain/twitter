@@ -11,6 +11,10 @@
 
 @interface TweetDetailVC ()
 
+- (IBAction)onReplyButton:(id)sender;
+- (IBAction)onRetweetButton:(id)sender;
+- (IBAction)onFavoriteButton:(id)sender;
+
 
 
 @end
@@ -42,8 +46,8 @@
     self.username.text = [userDetails objectForKey:@"name"];
     self.twitterHandle.text = [@"@" stringByAppendingString:[userDetails objectForKey:@"screen_name"]];
     self.profilePhoto.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[userDetails objectForKey:@"profile_image_url"]]]];
+    self.buttonGroupView.frame = CGRectMake(self.buttonGroupView.frame.origin.x, self.tweetText.frame.origin.y + self.tweetText.bounds.size.height + 10, self.buttonGroupView.bounds.size.width, self.buttonGroupView.bounds.size.height);
     
-
     
 }
 
@@ -55,5 +59,21 @@
 
 
 #pragma mark - Private methods
+
+
+- (IBAction)onReplyButton:(id)sender
+{
+    NSLog(@"Reply button clicked");
+}
+
+- (IBAction)onRetweetButton:(id)sender
+{
+    NSLog(@"Retweet button clicked");
+}
+
+- (IBAction)onFavoriteButton:(id)sender
+{
+    NSLog(@"Retweet button clicked");
+}
 
 @end

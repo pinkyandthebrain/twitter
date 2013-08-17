@@ -16,6 +16,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *twitterHandle;
 @property (nonatomic, strong) IBOutlet UILabel *tweetText;
 
+@property (nonatomic, strong) IBOutlet UIView *buttonGroupView;
 
 @property (nonatomic, strong) Tweet *tweet;
 
