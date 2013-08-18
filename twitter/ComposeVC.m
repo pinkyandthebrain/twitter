@@ -49,6 +49,7 @@
     self.tweetTextView.delegate = self;
     self.tweetTextView.text = [self.replyToTwitterHandle stringByAppendingString:@" "];
     [self.tweetTextView becomeFirstResponder];
+    self.charCount.text = nil;
     
 }
 
@@ -83,11 +84,20 @@
 {
     //Don't allow new characters after 140
     if([text isEqualToString:@"\b"]){
+        self.charCount.text = [NSString stringWithFormat:@"%d",textView.text.length-1];
         return YES;
-    }else if([[textView text] length] - range.length + text.length > 140){
+    }else if( textView.text.length - range.length + text.length > 140){
+        self.charCount.text = @"140";
         return NO;
     }
-
+    NSInteger tweetLength = textView.text.length-range.length+text.length;
+    if(tweetLength > 130){
+        self.charCount.textColor = [UIColor redColor];
+    }else{
+        self.charCount.textColor = [UIColor darkGrayColor];
+    }
+    
+    self.charCount.text = [NSString stringWithFormat:@"%d",tweetLength];
     return YES;
 }
 

@@ -11,6 +11,7 @@
 @interface ComposeVC : UIViewController <UITextViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextView *tweetTextView;
+@property (weak, nonatomic) IBOutlet UILabel *charCount;
 
 - (id)initWithString:(NSString *)replyTo replyToStatusID:(NSString *)replyToStatusID;
 
