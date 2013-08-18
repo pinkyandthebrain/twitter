@@ -64,7 +64,7 @@
 
 - (IBAction)onReplyButton:(id)sender
 {
-    ComposeVC *composeVC = [[ComposeVC alloc] initWithString:self.twitterHandle.text];
+    ComposeVC *composeVC = [[ComposeVC alloc] initWithString:self.twitterHandle.text replyToStatusID:[self.tweet valueOrNilForKeyPath:@"id_str"]];
     composeVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     [self presentViewController:composeVC animated:YES completion:nil];
     NSLog(@"Reply button clicked");

@@ -8,13 +8,15 @@
 
 #import "ComposeVC.h"
 #import "TwitterClient.h"
+#import "User.h"
 
 @interface ComposeVC ()
 
 - (IBAction)onCancel:(id)sender;
 - (IBAction)onPost:(id)sender;
 
-@property (nonatomic, strong) NSString *replyTo;
+@property (nonatomic, strong) NSString *replyToTwitterHandle;
+@property (nonatomic, strong) NSString *replyToStatusID;
 
 @end
 
@@ -29,10 +31,11 @@
     return self;
 }
 
-- (id)initWithString:(NSString *)replyTo
+- (id)initWithString:(NSString *)replyToTwitterHandle replyToStatusID:(NSString *)replyToStatusID
 {
     if(self){
-        self.replyTo = replyTo;
+        self.replyToTwitterHandle = replyToTwitterHandle;
+        self.replyToStatusID = replyToStatusID;
     }
     return self;
 }
@@ -44,7 +47,7 @@
     // Do any additional setup after loading the view from its nib.
     
     self.tweetTextView.delegate = self;
-    self.tweetTextView.text = [self.replyTo stringByAppendingString:@" "];
+    self.tweetTextView.text = [self.replyToTwitterHandle stringByAppendingString:@" "];
     [self.tweetTextView becomeFirstResponder];
     
 }
@@ -100,7 +103,7 @@
     
     [self.tweetTextView resignFirstResponder];
     //post the text to twitter
-    [[TwitterClient instance] postTweet:self.tweetTextView.text success:^(AFHTTPRequestOperation *operation, id response) {
+    [[TwitterClient instance] postTweet:self.tweetTextView.text inReplyTo:self.replyToStatusID success:^(AFHTTPRequestOperation *operation, id response) {
         NSLog(@"%@", response);
         //Dismiss the modal dialog on successful POST.
         [self dismissViewControllerAnimated:YES completion:nil];

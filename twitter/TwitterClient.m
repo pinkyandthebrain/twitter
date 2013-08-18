@@ -67,10 +67,13 @@ static NSString * const kAccessTokenKey = @"kAccessTokenKey";
 
 //Post Tweet
 
-- (void)postTweet:(NSString *)tweetInput success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+- (void)postTweet:(NSString *)tweetInput inReplyTo:(NSString *)inReplyTo success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     //  NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"tweet": @(tweetInput)}];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:tweetInput forKey:@"status"];
+    if(inReplyTo){
+        [params setObject:inReplyTo forKey:@"in_reply_to_status_id"];
+    }
     [self postPath:@"1.1/statuses/update.json" parameters:params success:success failure:failure];
 }
 
