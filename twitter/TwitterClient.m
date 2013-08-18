@@ -74,6 +74,12 @@ static NSString * const kAccessTokenKey = @"kAccessTokenKey";
     [self postPath:@"1.1/statuses/update.json" parameters:params success:success failure:failure];
 }
 
+- (void)retweetPost: (NSString *)id_str success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    //  NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"tweet": @(tweetInput)}];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [self postPath:[[@"1.1/statuses/retweet/" stringByAppendingString:id_str] stringByAppendingString:@".json"] parameters:params success:success failure:failure];
+}
+
 #pragma mark - Private methods
 
 - (void)setAccessToken:(AFOAuth1Token *)accessToken {

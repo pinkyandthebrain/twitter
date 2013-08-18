@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) IBOutlet UITextView *tweetTextView;
 
+- (id)initWithString:(NSString *)replyTo;
+
 @end

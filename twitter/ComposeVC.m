@@ -14,6 +14,8 @@
 - (IBAction)onCancel:(id)sender;
 - (IBAction)onPost:(id)sender;
 
+@property (nonatomic, strong) NSString *replyTo;
+
 @end
 
 @implementation ComposeVC
@@ -27,12 +29,22 @@
     return self;
 }
 
+- (id)initWithString:(NSString *)replyTo
+{
+    if(self){
+        self.replyTo = replyTo;
+    }
+    return self;
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
     self.tweetTextView.delegate = self;
+    self.tweetTextView.text = [self.replyTo stringByAppendingString:@" "];
     [self.tweetTextView becomeFirstResponder];
     
 }
@@ -76,12 +88,6 @@
     return YES;
 }
 
-- (BOOL)textViewShouldReturn:(UITextField *)textView
-{
-    [textView resignFirstResponder];
-    return YES;
-}
-
 
 #pragma mark - Private methods
 
@@ -91,7 +97,8 @@
 }
 
 - (IBAction)onPost:(id)sender {
-
+    
+    [self.tweetTextView resignFirstResponder];
     //post the text to twitter
     [[TwitterClient instance] postTweet:self.tweetTextView.text success:^(AFHTTPRequestOperation *operation, id response) {
         NSLog(@"%@", response);

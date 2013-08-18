@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="buttonGroupView" destination="XMo-ji-Dgh" id="i0m-ze-PTI"/>
                 <outlet property="profilePhoto" destination="dIN-xR-fk1" id="WqY-Qt-AXm"/>
+                <outlet property="retweetButton" destination="REY-Nx-CBN" id="dm5-m5-7mY"/>
                 <outlet property="tweetText" destination="4Ke-4h-eLR" id="g4O-NH-H8O"/>
                 <outlet property="twitterHandle" destination="bRw-Ma-KAw" id="EKz-Sb-gfM"/>
                 <outlet property="username" destination="gsJ-tC-opq" id="w80-oZ-bqX"/>
@@ -102,6 +103,12 @@
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
+        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="AoE-PE-n2f">
+            <rect key="frame" x="0.0" y="0.0" width="97" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+            <textInputTraits key="textInputTraits"/>
+        </textField>
     </objects>
     <resources>
         <image name="Reply.png" width="32" height="32"/>

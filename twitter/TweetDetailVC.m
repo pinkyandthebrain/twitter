@@ -15,6 +15,7 @@
 - (IBAction)onRetweetButton:(id)sender;
 - (IBAction)onFavoriteButton:(id)sender;
 
+@property (nonatomic, strong) IBOutlet UIButton *retweetButton;
 
 @end
 
@@ -62,9 +63,7 @@
 
 - (IBAction)onReplyButton:(id)sender
 {
-    ComposeVC *composeVC = [[ComposeVC alloc] init];
-    //UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:composeVC];
-    //nvc.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonSystemItemCancel target:self action:@selector(onCancel)];
+    ComposeVC *composeVC = [[ComposeVC alloc] initWithString:self.twitterHandle.text];
     composeVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     [self presentViewController:composeVC animated:YES completion:nil];
     NSLog(@"Reply button clicked");
@@ -72,6 +71,15 @@
 
 - (IBAction)onRetweetButton:(id)sender
 {
+    [[TwitterClient instance] retweetPost:[self.tweet valueOrNilForKeyPath:@"id_str"] success:^(AFHTTPRequestOperation *operation, id response) {
+        NSLog(@"%@", response);
+        //Change the color of the button
+        UIImage *test = [UIImage imageNamed:@"retweetSuccess.png"];
+        [self.retweetButton setImage:[UIImage imageNamed:@"retweetSuccess.png"] forState:UIControlStateNormal];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // Do nothing
+    }];
     NSLog(@"Retweet button clicked");
 }
 
