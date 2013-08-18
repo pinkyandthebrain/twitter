@@ -16,6 +16,7 @@
 - (IBAction)onFavoriteButton:(id)sender;
 
 @property (nonatomic, strong) IBOutlet UIButton *retweetButton;
+@property (nonatomic, strong) IBOutlet UIButton *favoriteButton;
 
 @end
 
@@ -85,6 +86,16 @@
 
 - (IBAction)onFavoriteButton:(id)sender
 {
-    NSLog(@"Retweet button clicked");
+    [[TwitterClient instance] favoriteTweet:[self.tweet valueOrNilForKeyPath:@"id_str"] success:^(AFHTTPRequestOperation *operation, id response) {
+        NSLog(@"%@", response);
+        //Change the color of the button
+        UIImage *test = [UIImage imageNamed:@"favoriteFilled.png"];
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favoriteFilled.png"] forState:UIControlStateNormal];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // Do nothing
+    }];
+
+    NSLog(@"Favorite button clicked");
 }
 @end

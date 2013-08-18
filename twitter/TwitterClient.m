@@ -75,11 +75,16 @@ static NSString * const kAccessTokenKey = @"kAccessTokenKey";
 }
 
 - (void)retweetPost: (NSString *)id_str success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    //  NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"tweet": @(tweetInput)}];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [self postPath:[[@"1.1/statuses/retweet/" stringByAppendingString:id_str] stringByAppendingString:@".json"] parameters:params success:success failure:failure];
 }
 
+- (void)favoriteTweet: (NSString *)id_str success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:id_str forKey:@"id"];
+    [self postPath:@"1.1/favorites/create.json" parameters:params success:success failure:failure];
+    
+}
 #pragma mark - Private methods
 
 - (void)setAccessToken:(AFOAuth1Token *)accessToken {
