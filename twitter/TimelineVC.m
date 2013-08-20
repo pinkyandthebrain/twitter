@@ -10,6 +10,8 @@
 #import "TweetDetailVC.h"
 #import "TweetCell.h"
 #import "ComposeVC.h"
+#import "UIImageView+AFNetworking.h"
+
 
 @interface TimelineVC ()
 
@@ -98,7 +100,7 @@
     cell.username.text = username;
     cell.twitterHandle.frame = CGRectMake(cell.username.frame.origin.x+bodyWidth+5,cell.twitterHandle.frame.origin.y, cell.twitterHandle.bounds.size.width, cell.twitterHandle.bounds.size.height);
     cell.twitterHandle.text = [@"@" stringByAppendingString:[userDetails objectForKey:@"screen_name"]];
-    cell.profilePhoto.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[userDetails objectForKey:@"profile_image_url"]]]];
+    [cell.profilePhoto setImageWithURL:[NSURL URLWithString:[userDetails objectForKey:@"profile_image_url"]]];
     
     return cell;
 }
