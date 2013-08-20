@@ -14,7 +14,7 @@
 @property (nonatomic, strong, readonly) NSString *name;
 
 + (NSMutableArray *)tweetsWithArray:(NSArray *)array;
-+ (CGFloat)heightForLabelWithString:(NSString *)pString andWidth:(CGFloat)pWidth;
++ (CGFloat)heightForLabelWithString:(NSString *)pString andWidth:(CGFloat)pWidth font:(UIFont *)font;
 + (CGFloat)widthForLabelWithString:(NSString *)pString andHeigth:(CGFloat)pHeight;
 
 @end

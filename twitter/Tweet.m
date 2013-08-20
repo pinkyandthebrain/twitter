@@ -26,9 +26,10 @@
     return tweets;
 }
 
-+ (CGFloat)heightForLabelWithString:(NSString *)pString andWidth:(CGFloat)pWidth
++ (CGFloat)heightForLabelWithString:(NSString *)pString andWidth:(CGFloat)pWidth font:(UIFont *)font
 {
-    CGSize labelSize = [pString sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:14.5f] constrainedToSize:CGSizeMake(pWidth, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
+    CGSize labelSize = [pString sizeWithFont:font constrainedToSize:CGSizeMake(pWidth, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
+    
     return labelSize.height;
 }
 

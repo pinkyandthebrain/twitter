@@ -38,9 +38,10 @@
     //[self.tweetText setNumberOfLines:ceil(([self.tweet.text sizeWithFont:[UIFont systemFontOfSize:17.0f] ].width)/self.tweetText.bounds.size.width-300)];
     
     
-    CGFloat bodyHeight = [Tweet heightForLabelWithString:self.tweet.text andWidth:290];
+     CGFloat bodyHeight = [Tweet heightForLabelWithString:self.tweet.text andWidth:self.tweetText.bounds.size.width font:self.tweetText.font];
     
     self.tweetText.frame = CGRectMake(self.tweetText.frame.origin.x, self.tweetText.frame.origin.y, self.tweetText.frame.size.width, bodyHeight);
+    NSLog(@"height = %f", bodyHeight);
     self.tweetText.numberOfLines = 0;
     self.tweetText.text = self.tweet.text;
     NSDictionary *userDetails = [self.tweet valueOrNilForKeyPath:@"user"];

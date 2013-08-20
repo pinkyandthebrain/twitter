@@ -45,7 +45,7 @@
     [self.tableView addSubview:pullToRefreshControl];
     
     //TIM: Adding this line is causing issues in TweetDetailVC where the profile photo does not show up.
-    //[self.navigationController.navigationBar setTranslucent:NO];
+    [self.navigationController.navigationBar setTranslucent:NO];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onSignOutButton)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"compose.png"] style:UIBarButtonItemStylePlain target:self action:@selector(onCompose)];
      
@@ -78,7 +78,7 @@
     return self.tweets.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (TweetCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"TweetCell";
     
@@ -86,7 +86,7 @@
     
     Tweet *tweet = self.tweets[indexPath.row];
     
-    CGFloat bodyHeight = [Tweet heightForLabelWithString:tweet.text andWidth:cell.tweetText.bounds.size.width];
+    CGFloat bodyHeight = [Tweet heightForLabelWithString:tweet.text andWidth:cell.tweetText.bounds.size.width font:cell.tweetText.font];
     
     cell.tweetText.frame = CGRectMake(cell.tweetText.frame.origin.x, cell.tweetText.frame.origin.y, cell.tweetText.frame.size.width, bodyHeight);
     cell.tweetText.numberOfLines = 0;
@@ -156,16 +156,18 @@
     
 }
 
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     TweetCell *cell = [[TweetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     
     Tweet *tweet = self.tweets[indexPath.row];
-    CGFloat bodyHeight = [Tweet heightForLabelWithString:tweet.text andWidth:290];
+    CGFloat bodyHeight = [Tweet heightForLabelWithString:tweet.text andWidth:290 font:[UIFont fontWithName:@"HelveticaNeue" size:14.5f]];
     
     return bodyHeight+50.0;
     
 }
+
 
 
 /*
