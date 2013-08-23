@@ -10,6 +10,7 @@
 #import "TwitterClient.h"
 #import "TimelineVC.h"
 #import "SignedOutVC.h"
+#import "Reachability.h"
 
 @interface AppDelegate ()
 
@@ -31,39 +32,6 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateRootVC) name:UserDidLoginNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateRootVC) name:UserDidLogoutNotification object:nil];
-    
-/*
-    self.window.rootViewController = [[TimelineVC alloc] init];
-    
-    if ([TwitterClient instance].accessToken == nil) {
-        NSLog(@"Yo");
-        [[TwitterClient instance] authorizeWithCallbackUrl:[NSURL URLWithString:@"cp-twitter://success"] success:^(AFOAuth1Token *accessToken, id responseObject) {
-            NSLog(@"success: %@", accessToken.secret);
-            NSLog(@"response: %@", responseObject);
-            [[TwitterClient instance] getPath:@"1.1/statuses/home_timeline.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSLog(@"Success: %@", responseObject);
-    //            NSArray *responseArray = (NSArray *)responseObject;
-    //            [responseArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-    //                NSLog(@"Success: %@", obj);
-    //            }];
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                NSLog(@"Error: %@", error);
-            }];
-        } failure:^(NSError *error) {
-            NSLog(@"failure!");
-        }];
-    } else {
-        [[TwitterClient instance] getPath:@"1.1/statuses/home_timeline.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"Success: %@", responseObject);
-            //            NSArray *responseArray = (NSArray *)responseObject;
-            //            [responseArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            //                NSLog(@"Success: %@", obj);
-            //            }];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Error: %@", error);
-        }];        
-    }
- */
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -97,6 +65,13 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    //TODO: do a reachability check
+    if (![[Reachability reachabilityForInternetConnection] isReachable]) {
+        NSLog(@"Not reachable");
+    } else {
+        NSLog(@"reachable");
+    }
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

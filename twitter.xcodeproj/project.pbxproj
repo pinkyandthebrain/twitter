@@ -35,6 +35,7 @@
 		F0066E4017C02BF80003FC37 /* compose.png in Resources */ = {isa = PBXBuildFile; fileRef = F0066E3F17C02BF80003FC37 /* compose.png */; };
 		F0066E4317C057800003FC37 /* retweetSuccess.png in Resources */ = {isa = PBXBuildFile; fileRef = F0066E4217C057800003FC37 /* retweetSuccess.png */; };
 		F0066E4517C06A9F0003FC37 /* favoriteFilled.png in Resources */ = {isa = PBXBuildFile; fileRef = F0066E4417C06A9F0003FC37 /* favoriteFilled.png */; };
+		F0066E4717C3C5FE0003FC37 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0066E4617C3C5FE0003FC37 /* SystemConfiguration.framework */; };
 		F0F4913717C008B9000C2F96 /* bird_blue_48.png in Resources */ = {isa = PBXBuildFile; fileRef = F0F4913317C008B9000C2F96 /* bird_blue_48.png */; };
 		F0F4913817C008B9000C2F96 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = F0F4913417C008B9000C2F96 /* favorite.png */; };
 		F0F4913917C008B9000C2F96 /* Reply.png in Resources */ = {isa = PBXBuildFile; fileRef = F0F4913517C008B9000C2F96 /* Reply.png */; };
@@ -97,6 +98,7 @@
 		F0066E3F17C02BF80003FC37 /* compose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compose.png; path = Images/compose.png; sourceTree = "<group>"; };
 		F0066E4217C057800003FC37 /* retweetSuccess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = retweetSuccess.png; path = Images/retweetSuccess.png; sourceTree = "<group>"; };
 		F0066E4417C06A9F0003FC37 /* favoriteFilled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favoriteFilled.png; path = Images/favoriteFilled.png; sourceTree = "<group>"; };
+		F0066E4617C3C5FE0003FC37 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F0F4913317C008B9000C2F96 /* bird_blue_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bird_blue_48.png; path = Images/bird_blue_48.png; sourceTree = "<group>"; };
 		F0F4913417C008B9000C2F96 /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favorite.png; path = Images/favorite.png; sourceTree = "<group>"; };
 		F0F4913517C008B9000C2F96 /* Reply.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Reply.png; path = Images/Reply.png; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0066E4717C3C5FE0003FC37 /* SystemConfiguration.framework in Frameworks */,
 				42CC892E17AF4C6A00B6D34B /* CoreGraphics.framework in Frameworks */,
 				42CC893017AF4C6A00B6D34B /* UIKit.framework in Frameworks */,
 				42CC892C17AF4C6A00B6D34B /* Foundation.framework in Frameworks */,
@@ -154,6 +157,7 @@
 		42CC892A17AF4C6A00B6D34B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F0066E4617C3C5FE0003FC37 /* SystemConfiguration.framework */,
 				42CC892B17AF4C6A00B6D34B /* Foundation.framework */,
 				42CC892D17AF4C6A00B6D34B /* CoreGraphics.framework */,
 				42CC892F17AF4C6A00B6D34B /* UIKit.framework */,

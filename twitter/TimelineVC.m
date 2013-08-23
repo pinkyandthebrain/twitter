@@ -11,7 +11,8 @@
 #import "TweetCell.h"
 #import "ComposeVC.h"
 #import "UIImageView+AFNetworking.h"
-
+#import <SystemConfiguration/SystemConfiguration.h>
+#import "AFHTTPClient.h"
 
 @interface TimelineVC ()
 
@@ -41,6 +42,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //  AFHTTPClient *client = [[AFHTTPClient alloc] init];
+    
+    
+    
+#ifdef _SYSTEMCONFIGURATION_H
+    NSLog(@"SYSTEM CONFIG DEFINED");
+#endif
     
     UIRefreshControl *pullToRefreshControl = [[UIRefreshControl alloc] init];
     [pullToRefreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
@@ -160,8 +169,6 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    TweetCell *cell = [[TweetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     
     Tweet *tweet = self.tweets[indexPath.row];
     CGFloat bodyHeight = [Tweet heightForLabelWithString:tweet.text andWidth:290 font:[UIFont fontWithName:@"HelveticaNeue" size:14.5f]];
